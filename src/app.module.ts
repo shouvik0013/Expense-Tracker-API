@@ -7,6 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
+import { dataSourceOptions } from '../db/data-source';
 
 @Module({
   imports: [
@@ -18,8 +19,7 @@ import { UsersModule } from './users/users.module';
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => {
         return {
-          type: 'sqlite',
-          database: configService.get<string>('DB_NAME'),
+          ...dataSourceOptions,
           autoLoadEntities: true,
         }
       }
