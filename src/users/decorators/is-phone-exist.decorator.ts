@@ -23,8 +23,6 @@ export class IsPhoneNumberExists implements ValidatorConstraintInterface {
                 },
             });
 
-            console.log('>>>>>>>>>>>>USERS', users);
-
             if (users.length > 0) {
                 return false;
             }

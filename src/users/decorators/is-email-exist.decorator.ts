@@ -23,11 +23,20 @@ export class IsEmailAlreadyExists implements ValidatorConstraintInterface {
                 },
             });
 
+            console.log(">>>>Retrieved users: ");
+            console.log(users);
+            
+            
+
             if (users.length > 0) {
                 return false;
             }
             return true;
         } catch (error) {
+            console.log('>>>>>>>ERROR OCCURED');
+            console.log(error);
+            
+            
             return false;
         }
     }
